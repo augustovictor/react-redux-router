@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPosts } from '../actions';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
-class PostIndex extends Component {
+class PostsIndex extends Component {
     componentDidMount() {
         this.props.fetchPosts();
     };
@@ -17,12 +16,8 @@ class PostIndex extends Component {
     };
     
     render() {
-        console.log(this.props.posts);
         return(
             <div>
-                <div className="text-xs-righ">
-                    <Link to="/posts/new" className="btn btn-primary">Add a post</Link>
-                </div>
                 <h3>Posts</h3>
                 <ul className="list-group">
                     { this.renderPosts() }
@@ -42,4 +37,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 //export default connect(null, mapDispatchToProps)(PostIndex);
-export default connect(mapStateToProps, { fetchPosts })(PostIndex);
+export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
