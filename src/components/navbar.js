@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import PostsIndex from '../components/posts_index';
 import PostsNew from '../components/posts_new';
+import PostsShow from '../components/posts_show';
 
 export default (props) => {
     return(
@@ -13,6 +14,7 @@ export default (props) => {
                 <Link to="/posts/new" className="btn btn-primary">Add a post</Link>
                 <Switch>
                     <Route path="/posts/new" component={PostsNew} />
+                    <Route path="/posts/:id" component={PostsShow} />
                     <Route path="/" component={PostsIndex} />
                 </Switch>
             </div>
